@@ -21,8 +21,9 @@ function onFormSubmit(event) {
   event.preventDefault();
 
   event.currentTarget.reset();
+  /* console.log(currentInput); */
+  console.log(localStorageDataToOBject());
   localStorage.removeItem(feedbackFormState);
-  console.log(currentInput);
 }
 
 function emailInput(event) {
@@ -39,10 +40,14 @@ function currentInputToJSON() {
   return JSON.stringify(currentInput);
 }
 
+function localStorageDataToOBject() {
+  return JSON.parse(localStorage.getItem(feedbackFormState));
+}
+
 populateStorageData();
 
 function populateStorageData() {
-  const storageData = JSON.parse(localStorage.getItem(feedbackFormState));
+  const storageData = localStorageDataToOBject();
   if (storageData) {
     const { email, message } = storageData;
     if (email) {
