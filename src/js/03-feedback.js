@@ -22,7 +22,7 @@ function onFormSubmit(event) {
 
   event.currentTarget.reset();
   localStorage.removeItem(feedbackFormState);
-  console.log(`Email: ${currentInput.email}; Message: ${currentInput.message}`);
+  console.log(currentInput);
 }
 
 function emailInput(event) {
